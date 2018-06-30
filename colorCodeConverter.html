@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Color Code Converter - Scott Whitney</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href='//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    <!-- Custom styles for this template -->
+    <link href="css/resume.css" rel="stylesheet">
+<meta name="theme-color" content="#ffffff">
+<!-- #BeginEditable "doctitle" -->
+<meta name="description" content="Color Format Conversion.">
+  </head>
+  <body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">        
+        <span class="d-none d-lg-block">
+          <img id="profile" class="img-fluid img-profile rounded-circle mx-auto mb-2" src="http://aslexpress.net/codingCompetition6/img/Thinking.png" alt="Man rubbing chin with thoughtful expression">
+        </span>
+      </a>      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Q3">Question 3</a>
+          </li>          
+        </ul>
+      </div>
+    </nav>  
+      <div class="wrapper">     
+        <div id="lcol">  
+          <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="Q3">
+            <div class="my-auto">     
+                  <div id="doc">
+                  <!-- #BeginEditable "doctext" -->
+                    <h2 class="mb-5">Question 3</h2>
+                    <p>Write a function that converts HEX to RGB. Then Make that function autodect the formats so that if you enter HEX color format it returns RGB and if you enter RGB color format it returns HEX. Bonus: Release this tool as a npm package.</p>
+                    <p>Enter red, green and blue color levels (%) and press the <i>Convert</i> button:</p>
+                    <form name="calcform">                        
+                    <table class="calc2">
+                      <tr>
+                        <td>
+                          <div class="sourceFormatDiv">
+                            <label class="radio inline"> 
+                                <input type="radio" name="colorformat" value="RGB" class="clrfrm" checked>
+                                <span> RGB </span> 
+                            </label>
+                            <label class="radio inline"> 
+                                <input type="radio" name="colorformat" value="HEX" class="clrfrm">
+                                <span>HEX </span> 
+                            </label>
+                          </div><!--sourceFormatDiv-->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Red color (R):</td>
+                        <td><output for="sliderRed" type="number" min="0" max="100" name="r" id="r" class="intext" placeholder="0" tabindex="1" value="0" oninput="onnumber(this,1)">0</output>%</td>
+                        <td><div class="sliderContainer" id="red"><input class="clrSldr" value="0" id="sliderRed" type="range" min="0" max="100" step="1"/></div></td>
+                      </tr>
+                      <tr>
+                        <td>Green color (G):</td>
+                        <td><output for="sliderGreen" type="number" min="0" max="100" name="g" id="g" class="intext" placeholder="0" tabindex="2" oninput="onnumber(this,2)">0</output>%</td>
+                        <td><div class="sliderContainer" id="green"><input class="clrSldr" id="sliderGreen" type="range" min="0" max="100" step="1" value="0" /></div></td>
+                      </tr>
+                      <tr>
+                        <td>Blue color (B):</td>
+                        <td><output for="sliderBlue" type="number" min="0" max="100" name="b" id="b" class="intext" placeholder="0" tabindex="3" oninput="onnumber(this,3)" >0</output>%</td>
+                        <td><div class="sliderContainer" id="blue"><input class="clrSldr" id="sliderBlue" type="range" min="0" max="100" step="1" value="0" /></div></td>
+                      </tr>
+                      <tr>
+                        <td>Color preview:</td>
+                        <td colspan="2"><div id="swatch" class="ui-widget-content ui-corner-all"></div></td>
+                      </tr>
+                      <tr><!--something amiss here-->
+                          <td>Source color code:</td>
+                          <td colspan="2"><input type="text" name="source" id="source" class="outtext" tabindex="7" readonly></td>
+                      </tr>
+                      <tr>
+                          <td>&nbsp;</td>
+                          <td colspan="2">
+                            <button type="button" title="Convert" class="btn" tabindex="4" id=convertbtn alt=""> Convert</button>
+                            <button type="reset" title="Reset" class="btn" tabindex="5" onclick="clr()"> Reset</button>
+                          </td>
+                      </tr>      
+                        <tr>
+                          <td>Converted code:</td>
+                          <td colspan="2"><input type="text" name="converted" id="converted" class="outtext" tabindex="8" readonly></td>
+                        </tr>
+                    </table>
+                    </form>  
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>    
+                  </div><!--doc-->
+            </div><!--my-auto-->
+          </section>
+        </div><!--lcol-->
+      </div> <!--wrapper-->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/resume.min.js"></script>
+    <script src="js/colorCodeConverter.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  </body>
+</html>
